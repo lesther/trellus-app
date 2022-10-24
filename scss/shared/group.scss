@@ -124,42 +124,70 @@
 	.group_spacing-xl#{$size} {
 		gap: 50px;
 	}
+
+    //flex grid     
+    .flex_grid-half#{$size} {
+      flex: auto 1 1;
+      max-width: 50%;
+    }
+    .flex_grid-half_gap-sm#{$size} {
+        flex: auto 1 1;
+        max-width: calc(50% - 15px);
+    }
+    .flex_grid-third#{$size} {
+      flex: auto 1 1;
+      max-width: 33.33%;
+    }
+    .flex_grid-third_gap-sm#{$size} {
+        flex: auto 1 1;
+        max-width: calc(33.33% - 15px);
+    }
+    .flex_grid-quarter#{$size} {
+      flex: auto 1 1;
+      max-width: 25%;
+    }
+    .flex_grid-quarter_gap-sm#{$size} {
+        flex: auto 1 1;
+        max-width: calc(25% - 15px);
+    }
+
+
+    //grow
+    .flex_grow-none#{$size} {
+        flex-grow: initial;
+    }
+    .flex_grow-1#{$size} {
+        flex-grow: 1;
+    }
+    .flex_gro-2#{$size} {
+        flex-grow: 2;
+    }
+    .flex_grow-3#{$size} {
+        flex-grow: 3;
+    }
+    .flex_width-auto#{$size} {
+        flex: 0 0 auto;
+        width: auto;
+    }
+    .flex_fill#{$size} {
+        flex: 1;
+    }
 }
 
 // Generate font size helpers
 @include group-modifiers();
 @include sm {
-  @include group-modifiers("--sm");
+    @include group-modifiers("--sm");
 }
 
 @include md {
-  @include group-modifiers("--md");
+    @include group-modifiers("--md");
 }
 
 @include lg {
-  @include group-modifiers("--lg");
+    @include group-modifiers("--lg");
 }
 
 @include xl {
 	@include group-modifiers("--xl");
-}
-
-//grow
-.flex_grow-none {
-    flex-grow: initial;
-}
-.flex_grow-1 {
-    flex-grow: 1;
-}
-.flex_gro-2 {
-    flex-grow: 2;
-}
-.flex_grow-3 {
-    flex-grow: 3;
-}
-.flex_width-auto {
-    flex: 0 0 auto;
-}
-.flex_fill {
-    flex: 1;
 }

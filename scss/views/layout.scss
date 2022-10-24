@@ -38,6 +38,9 @@
         border-color: transparent;
         @include shadow(0 0 30px 0 rgba($color: $secondary-color, $alpha: 0.5));
     }
+    @include sm {
+        bottom: 70px;
+    }
 }
 
 //app
@@ -48,4 +51,165 @@
     //temporarily
     max-width: 400px;
     margin: 0 auto;
+}
+
+// wrap body
+.section_body {
+    @include md {
+        margin: auto;
+        width: calc(100% - 80px);
+    }
+}
+
+// button fixe
+.btn_fixed-bottom-right.data-badge,
+.btn_fixed-bottom-right[data-badge]:after {
+	left: calc(100% - 20px);
+}
+
+// swiper
+.swiper-scrollbar-drag {
+    background-color: $primary-color;
+}
+.swiper-horizontal>.swiper-scrollbar,
+.swiper-scrollbar.swiper-scrollbar-horizontal {
+    background-color: rgba($color: $primary-color, $alpha: 0.3);
+}
+// full height card
+.swiper-wrapper .swiper-slide {
+    height: auto;
+    > *,
+    .tile__body-xs,
+    .tile__body {
+        height: 100%;
+    }
+    .tile__body > .group,
+    .tile__body-xs > .group {
+        height: 100%;
+    }
+    .tile__body-xs > .group > * {
+        flex-grow: 0;
+        &:last-child {
+            margin-top: auto;
+        }
+    }
+}
+
+// box
+.box_locked {
+    @include position(absolute, 0, null, 0 ,null, 100%, 100%);
+    z-index: 10;
+    background-color: rgba($color: $light-color, $alpha: 0.8);
+    &:after {
+        content: "lock";
+        @include material-icons;
+        @include position(absolute, null, 15px, null ,15px, null, null);
+        color: $leading-color;
+    }
+    & ~ .tile__body-xs {
+        pointer-events: none;
+    }
+}
+
+// sections
+// mobile
+.section_hide-header header {
+    @include only-mobile {
+        display: none;
+    }
+}
+.section_hide-header {
+    @include only-mobile {
+        .section_body {
+            background-color: $light-color;
+        }
+    }
+}
+
+
+.section_hide-header .header_title {
+    margin-top: -40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    position: relative;
+    @include md {
+        margin-top: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
+.section_hide-header .header_title-sm {
+    @extend .header_title;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    @include md {
+        margin-top: 0;
+        padding-bottom: 0;
+        padding-top: 0;
+    }
+}
+
+.section_hide-header .divider_full-bottom {
+    position: relative;
+    min-height: 1px;
+    @include md {
+        display: none;
+    }
+}
+.section_hide-header .header_title:before,
+.section_hide-header .header_title-sm:before,
+.section_hide-header .divider_full-bottom:before {
+    content: "";
+    @include position(absolute, null, 0, -25px, null, calc(100% + 50px), 1px);
+    border-bottom: 1px solid $split-color;
+    @include md {
+        content: none;
+    }
+}
+.section_hide-header {
+    @include only-mobile {
+        .footer_body {
+            border-top: 1px solid $gray-border-color;
+        }
+    }
+}
+.section_light-mobile {
+    @include only-mobile {
+        background-color: $light-color;
+        border-top: 1px solid $split-color;
+        ~ .footer_body {
+            border-top: 1px solid $gray-border-color;
+        }
+    }
+}
+
+// bg oval
+.bg_oval-secondary-soft {
+    position: relative;
+    z-index: 1;
+}
+.bg_oval-secondary-soft:before {
+    content: "";
+    background-color: $leading-color--light;
+    @include position(absolute, null, 22px, -10%, 0, 120%, 100% );
+    margin: auto;
+    display: block;
+    z-index: -1;
+}
+.bg_oval-secondary-soft:after {
+    content: "";
+    background: $leading-color--light;
+    background: -webkit-radial-gradient(top, $leading-color--light 70%, #fff 0%);
+    background: -moz-radial-gradient(top, $leading-color--light 70%, #fff 0%);
+    background: radial-gradient(to top, $leading-color--light 70%, #fff 0%);
+    //@include position(absolute, 50%, null, -25px, 0, calc(100% + 50px), 50% );
+    @include position(absolute, null, 22px, -10%, 0, 120%, 50% );
+    margin: auto;
+    display: block;
+    z-index: -1;
+}
+.h-overflow-hidden--md {
+    @include md {
+        overflow: hidden;
+    }
 }

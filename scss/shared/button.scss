@@ -72,6 +72,9 @@
 .btn_corner-none {
 	@include corner(0);
 }
+.btn_corner-md {
+	@include corner(10px);
+}
 .btn_circle {
 	padding: 0;
 	@extend .btn;
@@ -84,6 +87,12 @@
 	&:hover{
 		color: $light-color;
 	}
+}
+.btn_circle-md {
+	@extend .btn_circle;
+	width: 40px;
+	height: 40px;
+	@extend .text_default;
 }
 .btn_circle-sm {
 	@extend .btn_circle;
@@ -109,7 +118,6 @@
 	line-height: 20px !important;
 	text-align: center;
 	@extend .text_md;
-
 	&.fa, &.fas{
 		font-size: inherit;
 	}
@@ -175,6 +183,7 @@
 		&.active,
 		&:hover {
 			color: map-get($value, 'color');
+			color: map-get($value, 'color-hover');
 			background-color: map-get($value, 'hover');
 		}
 	}
@@ -221,6 +230,7 @@
 		&:hover {
 			background-color: map-get($value, 'bg');
 			color: map-get($value, 'color');
+			border-color: map-get($value, 'bg');
 		}
 	}
 	.btn_hover-color-#{$colorClass} {

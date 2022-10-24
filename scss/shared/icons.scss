@@ -3,17 +3,22 @@
 // icon images
 .icon-group-container {
 	position: relative;
+	display: block;
+	overflow: hidden;
 }
 .icon-group__item {
 	display: block;
 	@include transition(0.3s);
+	transform-origin: center;
+	max-width: none;
 }
 .icon-group__item-display {
 	display: block;
 	@include transition(0.3s);
 	@include opacity(0);
-	@include position(absolute, 0, null, 0 , 100%, 100%);
+	@include position(absolute, 0, null, 0, null, 100%, 100%);
 	@include transform(scale(0));
+	transform-origin: center;
 	z-index: 1;
 }
 .icon-group-hover *:focus ~ * .icon-group__item-display,
@@ -51,11 +56,6 @@
 }
 
 // icon fonts
-// material-icons
-.material-icons {
-	@extend .text_lg-1;
-    line-height: 1;
-}
 .icon_xs {
 	@extend .text_sm;
 	line-height: 1;
@@ -64,7 +64,17 @@
 	@extend .text_md;
     line-height: 1;
 }
+.icon_sm-1 {
+	@extend .text_lg;
+    line-height: 1;
+}
+.icon_md {
+	@extend .text_xl;
+    line-height: 1;
+}
 .icon_lg {
+	height: 30px;
+	width: 30px;
 	@extend .text_xxl;
     line-height: 1;
 }
@@ -88,6 +98,11 @@
 	@include transition(0.3s);
 	border: 2px solid transparent;
 	animation: pulse 1.5s infinite ease-in;
+}
+
+// close
+.icon_close {
+	@include position(absolute, 10px, null, null, 10px, null, null);
 }
 
 @keyframes pulse {
@@ -121,6 +136,9 @@
 		@extend .icon_rounded;
 	}
 	.icon_#{$colorClass} {
+		color: $value;
+	}
+	.icon_hover-#{$colorClass}:hover {
 		color: $value;
 	}
 }

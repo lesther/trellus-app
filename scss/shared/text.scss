@@ -1,4 +1,9 @@
 /////////////////////////////
+/// // material-icons
+.material-icons {
+	font-size: 20px;
+    line-height: 1;
+}
 //text
 .text{
 	margin-bottom: 15px;
@@ -202,11 +207,11 @@
 	}
 }
 
-[data-badge] {
+[data-badge]:not(.h-position-relative):not(.btn_fixed-bottom-right):not(.btn_fixed-bottom-left) {
 	position: relative;
 }
 .data-badge,
-[data-badge]:before {
+[data-badge]:after {
 	content: attr(data-badge);
 	border: 1px solid $light-color;
 	@extend .text_xs;
@@ -220,7 +225,8 @@
 	text-align: center;
 	font-weight: bold;
 }
-.data-badge--warning-outline[data-badge]:before,
+// color
+.data-badge--warning-outline[data-badge]:after,
 .data-badge--warning-outline {
 	border-color: $leading-color;
 	background-color: rgba($color: $leading-color, $alpha: 0.15);
@@ -229,20 +235,28 @@
 		color:  $light-color;
 	}
 }
-.data-badge--warning[data-badge]:before,
+.data-badge--warning-highlight[data-badge]:after,
+.data-badge--warning-highlight {
+	color:  $leading-color;
+	background-color: rgba($color: $leading-color, $alpha: 0.1);
+}
+.data-badge--warning[data-badge]:after,
 .data-badge--warning {
 	background-color: $leading-color;
 }
-.data-badge--warning-outline[data-badge]:hover:before,
+.data-badge--warning-highlight[data-badge]:hover:after,
+.data-badge--warning-highlight:hover,
+.data-badge--warning-outline[data-badge]:hover:after,
 .data-badge--warning-outline:hover,
-.data-badge--warning[data-badge]:hover:before,
+.data-badge--warning[data-badge]:hover:after,
 .data-badge--warning:hover {
 	color:  $light-color;
 	background-color: $secondary-color;
 	border-color: $secondary-color;
 }
+// icon
 .data-badge.data-badge--icon,
-.data-badge--icon[data-badge]:before{
+.data-badge--icon[data-badge]:after{
 	color: $leading-color;
 	content: "error";
 	@include material-icons;
@@ -250,11 +264,13 @@
 	@include corner(0);
 	border-color: transparent;
 	font-size: 22px;
+	@include transition(0.3s);
 }
 .data-badge.data-badge--icon:hover,
-.data-badge--icon[data-badge]:hover:before {
+.data-badge--icon[data-badge]:hover:after {
 	color: $secondary-color;
 	background-color: initial;
+	border-color: transparent;
 }
 .data-badge {
 	content: none;
@@ -264,7 +280,7 @@
 }
 
 //size
-.data-badge--md[data-badge]:before,
+.data-badge--md[data-badge]:after,
 .data-badge--md {
 	width: 27px;
     height: 27px;
