@@ -255,7 +255,27 @@ input:checked + .checkbox-rate {
 		z-index: -1;
 	}
 }
-
+.btn_checkbox {
+	input {
+		@include opacity(0);
+		position: absolute;
+		z-index: -1;
+		visibility: hidden;
+	}
+	input + * {
+		padding: 5px 10px;
+		@include corner(10rem);
+		border: 1px solid transparent;
+		display: inline-flex;
+		width: auto;
+		@include transition(0.3s);
+		cursor: pointer;
+	}
+}
+.btn_checkbox  input:checked + * {
+	border-color: $primary-color;
+	background-color: rgba($color: $primary-color, $alpha: 0.15);
+}
 // btn dropdown
 .btn_dropdown-circle-horizontal,
 .btn_dropdown-circle {
