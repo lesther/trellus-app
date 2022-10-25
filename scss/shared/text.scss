@@ -169,7 +169,7 @@
 }
 .text_highlight-oval {
 	@extend .text_highlight;
-	padding: 8px 15px;
+	padding: 8px 10px;
 	@include corner(40px);
 	display: inline-block;
 	width: auto;
