@@ -5,9 +5,6 @@
 	height: $header-height;
 	z-index: 1;
 	position: relative;
-	@include lg {
-		padding: 15px 40px;
-	}
 	&--auto {
 		height: auto;
 	}

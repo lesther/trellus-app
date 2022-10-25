@@ -5,18 +5,19 @@ table {
 }
 
 th {
-    border-color: black;
+    border-color: transparent;
     border-style: solid;
     border-width: 1px;
     overflow: hidden;
-    padding: 10px 5px;
+    padding: 10px;
     word-break: normal;
 }
 td {
-    border-color: inherit;
+    border-color: transparent;
+    border-width: 1px;
     text-align: left;
     vertical-align: top;
-    padding: 10px 5px;
+    padding: 10px;
 
 }
 
@@ -24,4 +25,7 @@ td {
     tr:nth-child(even) {
         background-color: rgba($color: $secondary-color, $alpha: 0.15);
     }
+}
+.table_container {
+    overflow: auto;
 }

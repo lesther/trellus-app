@@ -711,3 +711,8 @@
 .h-square-55 {
 	@include width-height(55px, 55px);
 }
+
+// cursor
+.h-cursor-pointer {
+	cursor: pointer;
+}

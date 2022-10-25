@@ -118,3 +118,37 @@
         color: $primary-color;
     }
 }
+
+//accordion simple
+.accordion {
+    position: relative;
+}
+.accordion_header {
+    position: relative;
+}
+.accordion_header:before {
+    content: "";
+    @include position(absolute, 0, null, null, 0, 25px, 25px);
+    @include background(cover, center center, no-repeat);
+    background-image: url('../images/chevron_bottom-gray.svg');
+    @include transition(0.3s);
+}
+.accordion_body {
+    overflow: hidden;
+    max-height: 0;
+    @include transition(0.3s);
+}
+.accordion_content {
+    padding: 10px 0;
+    overflow: auto;
+    height: 100%;
+}
+// active
+.accordion.active {
+    .accordion_header:before {
+        @include transform(rotate(-180deg));
+    }
+    .accordion_body {
+        max-height: 15rem;
+    }
+}
