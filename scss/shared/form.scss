@@ -349,10 +349,73 @@ input:checked + .checkbox-rate {
 	max-height: 8rem;
 }
 
+// switch
+.btn_switch-input {
+	position: absolute;
+	z-index: -1;
+	@include opacity(0);
+	visibility: hidden;
+	&:not([disabled]):not(.disabled) ~ *,
+	&:not([disabled]):not(.disabled) + .btn_switch {
+		cursor: pointer;
+		@include transition(0.3s);
+	}
+}
+.btn_switch {
+	position: relative;
+}
+.btn_switch:before {
+	content: "";
+	display: block;
+	@include position(relative, null, null, null, null, 32px, 17px);
+	@include transition(0.3s);
+	@include corner(10rem);
+	position: relative;
+	background-color: rgba($color:  $primary-color, $alpha: 0.4);
+	border: 2px solid rgba($color: $primary-color, $alpha: 0.5);
+}
+.btn_switch:after {
+	content: "";
+	@include position(absolute, 2px, null, 2px, auto, 13px, 13px);
+	display: block;
+	@include corner(100%);
+	background-color: $light-color;
+	@include transition(0.1s);
+	z-index: 1;
+}
+
+.btn_switch-input:checked {
+	+ .btn_switch:before {
+		background-color: rgba($color:  $primary-color, $alpha: 1);
+	}
+	+ .btn_switch:after {
+		left: calc(100% - 15px);
+	}
+	~ * {
+		color: $primary-color;
+	}
+}
+
 /////////////////////////////
 // color
 //format
 @each $colorClass, $value in $mixClass-palette {
+	.btn_switch-#{$colorClass} {
+		@extend .btn_switch;
+		&:before {
+			background-color: rgba($color: map-get($value, 'bg'), $alpha: 0.4);
+			border-color: rgba($color: map-get($value, 'bg'), $alpha: 0.5);
+		}
+	}
+	.btn_switch-input:checked {
+		+ .btn_switch-#{$colorClass}:before {
+			background-color: rgba($color: map-get($value, 'bg'), $alpha: 1);
+			border-color: map-get($value, 'bg'); 
+		}
+		+ .btn_switch-#{$colorClass} ~ * {
+			color: map-get($value, 'bg');
+		}
+	}
 	.text_field-outline-#{$colorClass} {
 		@extend .text_field-outline;
 		color: map-get($value, 'dark');
