@@ -137,9 +137,12 @@
     overflow: hidden;
     max-height: 0;
     @include transition(0.3s);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
 }
 .accordion_content {
-    padding: 10px 0;
+    margin: 10px 0;
     overflow: auto;
     height: 100%;
 }
