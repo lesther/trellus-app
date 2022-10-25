@@ -50,6 +50,7 @@
                                 </span>
                             </span>
                         </a>
+                        <!-- panel -->
                         <div class="panel">
                             <div class="panel__wrap-light panel__wrap-right side-panel h-inner-spacing-none">
                                 <div class="header_light header--auto header_divider">
@@ -60,21 +61,61 @@
                                                     chevron_left
                                                 </span>
                                                 <h2 class="title_xs-1 h-spacing-bottom-none">
-                                                    Search by
+                                                    Quick Filter
                                                 </h2>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <section class="section section_pad-xs flex_grow-1">
-                                    ola
+                                    <div class="group group_spacing-md">
+                                        <input type="text" class="form-control text_field-search text_field-outline-primary" id="search--filter" placeholder="Search...">
+                                        <div class="group group_spacing-xs">
+                                            <p class="text_md text_spacing-sm text_gray">
+                                                Gender
+                                            </p>
+                                            <div class="group group_inline group_spacing-xs group_align-center text_md">
+                                                <span class="title_letter_profile-primary title_letter_profile-sm" data-gender="female">
+                                                </span>
+                                                Female
+                                            </div>
+                                            <div class="group group_inline group_spacing-xs group_align-center text_md">
+                                                <span class="title_letter_profile-primary title_letter_profile-sm" data-gender="male">
+                                                </span>
+                                                Male
+                                            </div>
+                                        </div>
+                                        <div class="divider">
+                                        </div>
+                                        <div class="group group_spacing-xs">
+                                            <p class="text_md text_spacing-sm text_gray">
+                                                Date
+                                            </p>
+                                            <div class="group group_spacing-xs">
+                                                <div class="h-width-100">
+                                                    <label for="" class="text_gray text_sm text_spacing-xs">
+                                                        Start
+                                                    </label>
+                                                    <input type="date" class="form-control text_field text_field-primary">
+                                                </div>
+                                                <div class="h-width-100">
+                                                    <label for="" class="text_gray text_sm text_spacing-xs">
+                                                        Ending
+                                                    </label>
+                                                    <input type="date" class="form-control text_field text_field-primary">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="h-spacing-top-auto">
+                                    </div>
                                 </section>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="box_light box_sm">
+                <div class="box_light box_sm accordion">
                     <div class="group group_inline">
                         <div>
                             <a href="" class="title_letter_profile-primary title_letter_profile-md" data-gender="female" data-badge="2">
@@ -92,14 +133,28 @@
                                 <p class="text_sm text_spacing-none">
                                     <b>Last TTM visit:</b> <span class="text_gray">12/02/22<span>
                                 </p>
-                                <p class="text_sm text_spacing-none">
-                                    <b>Diagnostic:</b> <span class="text_gray">Ulcerative Colitis<span>
-                                </p>
                             </div>
                             <div>
                                 <a href="" class="btn_link-primary material-icons icon_lg">
                                     chat_bubble_outline
                                 </a>
+                                <div class="accordion_header">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion_body">
+                        <div class="accordion_content">
+                            <div class="box_highlight-primary box_xs-1 group group_spacing-xxs">
+                                <p class="text_sm text_spacing-none">
+                                    <b>Diagnostic:</b> <span class="text_gray">Ulcerative Colitis<span>
+                                </p>
+                                <p class="text_sm text_spacing-none">
+                                    <b>Enrollment at:</b> <span class="text_gray">12/02/22<span>
+                                </p>
+                                <p class="text_sm text_spacing-none">
+                                    <b>Last term visit:</b> <span class="text_gray">12/02/22<span>
+                                </p>
                             </div>
                         </div>
                     </div>

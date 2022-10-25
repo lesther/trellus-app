@@ -25,7 +25,6 @@
 }
 .text_field-outline {
 	@extend .text_field;
-    border-color: inherit;
 }
 .text_field-block {
     width: 100%;
@@ -334,6 +333,12 @@ input:checked + .checkbox-rate {
 // color
 //format
 @each $colorClass, $value in $mixClass-palette {
+	.text_field-outline-#{$colorClass} {
+		@extend .text_field-outline;
+		color: map-get($value, 'dark');
+		border-color: rgba($color: map-get($value, 'bg'), $alpha: 0.7);
+		background-color: initial;
+	}
 	.text_field-#{$colorClass}[type="date"], 
 	.text_field-#{$colorClass} {
 		@extend .text_field;
