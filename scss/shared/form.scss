@@ -349,6 +349,41 @@ input:checked + .checkbox-rate {
 	max-height: 8rem;
 }
 
+// simple dropdown
+.btn_dropdown {
+	position: relative;
+}
+.btn_dropdown-menu {
+	@include position(absolute, 0, null, null, 0, null, null);
+	padding-top: 0px;
+	z-index: 1;
+	@include transition(0.3s);
+	@include opacity(0);
+	visibility: hidden;
+}
+.btn_dropdown-item  {
+	padding: 10px;
+	@include corner(10px);
+	@extend .group;
+	border: 1px solid $split-color;
+	min-width: 200px;
+	background-color: $light-color;
+}
+.btn_dropdown-toggle {
+	cursor: pointer;
+}
+.btn_dropdown:hover {
+	.btn_dropdown-menu {
+		padding-top: 25px;
+		@include opacity(100);
+		visibility: visible;
+	}
+	.btn_dropdown-toggle {
+		color: $primary-color;
+	}
+}
+
+
 // switch
 .btn_switch-input {
 	position: absolute;
