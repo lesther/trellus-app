@@ -1,0 +1,47 @@
+/////////////////////////////
+// bubble chat
+.bubble_chat {
+    @extend .group;
+    @extend .group_spacing-xxs;
+}
+.bubble_chat-item {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+.bubble_chat-body {
+    padding: 10px 20px;
+}
+.bubble_chat-hours {
+    padding: 10px 20px;
+    flex: 0 0 auto;
+}
+.bubble_chat-left .bubble_chat-body {
+    background-color: $lighter-color--primary;
+    @include corner(0px, 15px, 15px, 0px);
+}
+.bubble_chat-left .bubble_chat-item:first-child .bubble_chat-body {
+    @include corner(15px, 15px, 15px, 0px);
+}
+.bubble_chat-left .bubble_chat-item:last-child:not(:first-child) .bubble_chat-body {
+    @include corner(0px, 15px, 15px, 15px);
+}
+.bubble_chat-right .bubble_chat-item {
+    display: flex;
+    flex-direction: row-reverse;
+    text-align: right;
+}
+.bubble_chat-right .bubble_chat-body {
+    background-color: $primary-color;
+    color: $light-color;
+    @include corner(15px, 0px, 0px, 15px);
+}
+.bubble_chat-right .bubble_chat-item:first-child .bubble_chat-body {
+    @include corner(15px, 15px, 0px, 15px);
+}
+.bubble_chat-right .bubble_chat-item:last-child:not(:first-child) .bubble_chat-body {
+    @include corner(15px, 0px, 15px, 15px);
+}
+.bubble_chat-right .bubble_chat-item:last-child:not(:first-child) .bubble_chat-body {
+    @include corner(15px, 0px, 15px, 15px);
+}
