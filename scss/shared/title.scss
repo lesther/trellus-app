@@ -151,6 +151,19 @@
 		line-height: 37px;
 		font-weight: bold;
 	}
+	span {
+		display: inline-block;
+		font-size: 0;
+		line-height: 0;
+		height: 100%;
+	}
+	span:first-child,
+	span:nth-child(2) {
+		&::first-letter {
+			font-size: 1rem;
+			line-height: 37px;
+		}
+	}
 }
 .title_letter_profile-sm {
 	@extend .title_letter_profile;
@@ -158,6 +171,13 @@
 	height: 25px;
 	&::first-letter {
 		line-height: 30px;
+	}
+	span:first-child,
+	span:nth-child(2) {
+		&::first-letter {
+			font-size: 0.8rem;
+			line-height: 25px;
+		}
 	}
 }
 .title_letter_profile-md {
@@ -167,6 +187,14 @@
 	&::first-letter {
 		font-size: 1.5rem;
 		line-height: 48px;
+	}
+	span:first-child,
+	span:nth-child(2) {
+		&::first-letter {
+			font-size: 1.3rem;
+			line-height: 48px;
+			font-weight: bold;
+		}
 	}
 }
 .title_letter_profile-lg {
