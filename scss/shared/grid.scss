@@ -1,75 +1,49 @@
-.grid{
-    &__row{
-        display: grid;
-        grid-gap: 5px;
-        grid-template-columns: repeat(12,1fr);
-        &_top-spacing{
-            margin-top: 5px;
-        }
-    }
-    &__header{
-        grid-column: 5 / -1;
-        padding: 10px 15px;
-        font-size: 20px;
-        font-weight: bold;
-        text-align: center;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
-    }
-    &__data-numbers{
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        line-height: 1;
-    }
-    &__data{
-        grid-column: 5 / -1;
-        display: grid;
-        grid-template-columns: repeat(7, 1fr);
-        min-height: 30px;
-        text-align: center;
-        align-content: center;
-       
-       
-        &_opacity-bg{
-            background-color: rgba($primary-color, 0.3);
-            border-radius: 5px;
-        }
-
-        &-column{
-            font-weight: bold;
-            font-size: 20px;
-           
-        }
-
-        @for $counter from 1 to 7 {
-            &_column-danger-#{$counter}::after{
-                content: "";
-                height: 30px;
-                grid-column-start: $counter;
-                grid-column-end: $counter + 1;
-                background-color: #e60040;
-                border-radius: 5px;
-            } 
-            &_column-success-#{$counter}::after{
-                content: "";
-                height: 30px;
-                grid-column-start: $counter;
-                grid-column-end: $counter + 1;
-                background-color: #59bb00;
-                border-radius: 5px;
-            } 
-        }
-    }
-    &__label{
-        grid-column: 1 / 5;
-        font-weight: bold;
-        font-size: 12px;
-        padding-right: 15px;
-        padding-left: 5px;
-        border-radius: 5px;
-        line-height: 1;
-        &_header{
-            font-size: 16px;
-        }
-    }
+.grid__row {
+    margin-top: 5px;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(12,1fr);
+}
+.grid__header {
+    grid-column: 5 / -1;
+    padding: 10px 15px;
+}
+.grid__data {
+    grid-column: 5 / -1;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    min-height: 30px;
+    align-content: center;
+    background-color: rgba($primary-color, 0.3);
+    border-radius: 5px;
+}
+.grid__data-numbers {
+    @extend .grid__data;
+    @include corner(5px);
+    line-height: 1;
+    background-color: $primary-color;
+    color: $lighter-color;
+}
+.grid__label {
+    grid-column: 1 / 5;
+    padding: 10px;
+    border-radius: 5px;
+    line-height: 1;
+}
+%grid__data_column {
+    content: "";
+    height: 30px;
+    border-radius: 5px;
+}
+@for $counter from 1 to 8 {
+    .grid__data_column-#{$counter}::after{
+        @extend %grid__data_column;
+        grid-column-start: $counter;
+        grid-column-end: $counter + 1;
+    } 
+}
+@each $colorClass, $value in $colorClass-palette {
+	.grid__data_column-#{$colorClass}:after {
+		background-color: $value;
+	}
 }
